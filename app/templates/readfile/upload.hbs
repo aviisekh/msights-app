@@ -6,10 +6,7 @@
         <form>
             <div class="form-inline">
                 <div class="form-group">
-                    <!-- <input type="file" name="files[]" onchange={{action "getFile" value='target'}}> -->
-                    {{y-file-input value=fileData}}
-
-
+                    {{y-file-input fileDataValue=fileData}}
                 </div>
                 <!-- <button type="submit" class="btn btn-sm btn-primary" {{action 'getFile'}}>Upload files</button> -->
             </div>
@@ -18,10 +15,23 @@
 </div>
 
 
+{{#if fileData}}
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Contents</strong></div>
+    <div class="panel-body">
+        {{fileContent.contents}}
+    </div>
+</div>
+{{/if}}
 
+
+{{#if fileData}}
 <div class="panel panel-default">
     <div class="panel-heading"><strong>Header</strong></div>
     <div class="panel-body">
-        {{fileData.text}}
+        {{fileContent.header}}
     </div>
 </div>
+{{/if}}
+
+
