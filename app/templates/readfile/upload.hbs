@@ -6,11 +6,22 @@
         <form>
             <div class="form-inline">
                 <div class="form-group">
-                    <input type="file" name="files[]" onchange={{action "getFile" value='target'}}>
+                    <!-- <input type="file" name="files[]" onchange={{action "getFile" value='target'}}> -->
+                    {{y-file-input value=fileData}}
+
 
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary" {{action 'getFile'}}>Upload files</button>
+                <!-- <button type="submit" class="btn btn-sm btn-primary" {{action 'getFile'}}>Upload files</button> -->
             </div>
         </form>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Header</strong></div>
+    <div class="panel-body">
+        {{fileData.text}}
     </div>
 </div>
