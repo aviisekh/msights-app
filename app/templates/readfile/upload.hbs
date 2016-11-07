@@ -12,26 +12,32 @@
             </div>
         </form>
     </div>
+    <h4>Or drag and drop files below</h4>
+  <!--   <div class="upload-drop-zone" >
+     Just drag and drop files here
+  </div> -->
+    {{#drop-target fileDataValue=fileData}}
+        Just drag and drop files here
+    {{/drop-target}}
 </div>
 
-
-{{#if fileData}}
-<div class="panel panel-default">
-    <div class="panel-heading"><strong>Contents</strong></div>
-    <div class="panel-body">
-        {{fileContent.contents}}
-    </div>
-</div>
-{{/if}}
 
 
 {{#if fileData}}
 <div class="panel panel-default">
     <div class="panel-heading"><strong>Header</strong></div>
     <div class="panel-body">
-        {{fileContent.header}}
+            {{#each dataHeader as |columnHeader|}}
+                <div class="data-header">
+                    <span>
+                       {{columnHeader}}
+                    </span>
+                </div>
+            {{/each}}
     </div>
 </div>
 {{/if}}
+
+
 
 

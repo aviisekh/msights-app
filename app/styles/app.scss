@@ -3,22 +3,54 @@ body {
     padding-top: 20px;
 }
 
-/* layout.css Style */
-.upload-drop-zone {
-  height: 200px;
-  border-width: 2px;
-  margin-bottom: 20px;
+html {
+    overflow-y: scroll;
 }
 
-/* skin.css Style*/
-.upload-drop-zone {
-  color: #ccc;
-  border-style: dashed;
-  border-color: #ccc;
-  line-height: 200px;
-  text-align: center
+.library-item {
+    min-height: 150px;
 }
-.upload-drop-zone.drop {
-  color: #222;
-  border-color: #222;
+
+.label-fade {
+    margin: 10px;
+    opacity: 0;
+    @include transition(all 0.5s);
+    &.label-show {
+        opacity: 1;
+    }
+}
+
+.extra-padding-bottom {
+    padding-bottom: 20px;
+}
+
+
+/* layout.css Style */
+
+.upload-drop-zone {
+    height: 200px;
+    border-width: 2px;
+    margin-bottom: 20px;
+}
+
+
+/* skin.css Style*/
+
+.upload-drop-zone {
+    color: #ccc;
+    border-style: dashed;
+    border-color: #ccc;
+    line-height: 200px;
+    text-align: center
+}
+
+.upload-drop-zone.drops {
+    color: #222;
+    border-color: #222;
+}
+
+.data-header {
+    padding: 10px;
+    display: block;
+    border: 1px solid;
 }

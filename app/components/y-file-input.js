@@ -1,29 +1,20 @@
 import Ember from 'ember';
+import FileReaderMixin from "../mixins/file-reader";
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(FileReaderMixin, {
     tagName: 'input',
     type: 'file',
-    attributeBindings: ['type'],
+    accept: ".txt, .csv",
+    attributeBindings: ['type', 'accept', 'type'],
 
     addChangeListenerToElement: Ember.on('didInsertElement', function() {
         let input = this.$()[0];
 
         input.onchange = (event) => {
             let file = event.target.files[0];
-            let reader = new FileReader();
-            let fileName = file.name;
-
-            reader.onload = (event) => {
-                let text = reader.result;
-                let header = text.split('\n')[0];
-                this.set('fileDataValue', {
-                    file: file,
-                    contents: text,
-                    header: header
-                });
-            };
-
-            reader.readAsText(file);
+            this.readFile(file, (fileContents) => {
+                this.set('fileDataValue', fileContents);
+            });
         };
     })
 });
